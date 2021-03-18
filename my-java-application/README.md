@@ -98,6 +98,10 @@ BUILD SUCCESSFUL in 2m 21s
  
 ```
 
+## Log4j
+
+**Log4j configuration file name must be log4j2.xml and it must be saved to `src/main/resources`.**
+
 ## Building and running 
 
 ```

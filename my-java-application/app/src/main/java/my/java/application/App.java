@@ -70,9 +70,6 @@ public class App {
             	LOGGER.debug("inputFile: " + inputFile);
             	LOGGER.debug("outputFile: " + outputFile);
             	
-            	System.out.println("Provided correct arguments");
-            	System.out.println("inputFile: " + inputFile);
-            	System.out.println("outputFile: " + outputFile);
             	
             } else {
             	printUsage(options);
