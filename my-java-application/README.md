@@ -98,3 +98,23 @@ BUILD SUCCESSFUL in 2m 21s
  
 ```
 
+## Building and running 
+
+```
+# you can use the default system gradle
+gradlew clean build 
+
+# or use the gradlew wrapper delivered in the repository 
+./gradlew clean build 
+
+# running directly by gradle
+gradle run 
+
+# installing application and shell/cmd scripts to run app with thees scripts
+./gradlew installDist
+
+# running application with the generated script
+bash app/build/install/my-java-application/bin/my-java-application
+
+```
+

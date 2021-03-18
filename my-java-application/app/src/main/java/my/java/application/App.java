@@ -3,12 +3,112 @@
  */
 package my.java.application;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Arrays;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.DefaultParser;
+
+
 public class App {
+	
+	private static final boolean DEBUG = true;
+	
+	private static Logger LOGGER = LogManager.getLogger(App.class);
+	
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        LOGGER.debug(new App().getGreeting());
+        LOGGER.info("info level message");
+        LOGGER.warn("warn level message");
+        LOGGER.error("error level message");
+        
+        if (DEBUG) {
+        	//is logger loaded ?
+        	System.out.println(org.apache.logging.log4j.Logger.class.getName());
+        	//api
+        	System.out.println(org.apache.logging.log4j.Logger.class.getResource("/org/ap‌​ache/logging/log4j/Logger.class"));
+        	//core
+        	System.out.println(org.apache.logging.log4j.Logger.class.getResource("/org/ap‌​ache/logging/log4j/core/Appender.class"));
+        	//config
+        	System.out.println(org.apache.logging.log4j.Logger.class.getResource("/log4j2.xml"));
+        	
+			LOGGER.debug("Given args: " + Arrays.toString(args));
+		}
+        
+        
+        final Options options = new Options();
+
+        options.addOption("i", "input-file", true, "Input file, REQUIRED");
+        options.addOption("o", "output-file", true, "Output file, REQUIRED");
+
+        final org.apache.commons.cli.CommandLineParser parser = new DefaultParser();
+
+        try {
+            final CommandLine cmd = parser.parse(options, args);
+
+            Option[] allOptions = cmd.getOptions();
+
+            final boolean inputON = cmd.hasOption("i");
+            final boolean outputON = cmd.hasOption("o");
+            
+            if (inputON && outputON) {
+            	LOGGER.info("Provided correct arguments");
+            	final String inputFile = cmd.getOptionValue("i");
+            	final String outputFile = cmd.getOptionValue("o");
+            	
+            	LOGGER.debug("inputFile: " + inputFile);
+            	LOGGER.debug("outputFile: " + outputFile);
+            	
+            	System.out.println("Provided correct arguments");
+            	System.out.println("inputFile: " + inputFile);
+            	System.out.println("outputFile: " + outputFile);
+            	
+            } else {
+            	printUsage(options);
+            }
+            
+        } catch (final org.apache.commons.cli.MissingArgumentException e) {
+            LOGGER.error("INVALID PARAMS");
+            printUsage(options);
+            e.printStackTrace();
+        } catch (final ParseException e) {
+            e.printStackTrace();
+        }
+        
+        
     }
+    
+    private static void printUsage(final Options options) {
+        final HelpFormatter formatter = new HelpFormatter();
+        final StringBuilder usageSb = new StringBuilder();
+
+        usageSb.append("\nbash app/build/install/my-java-application/bin/my-java-application \\\n" +
+                " -i <input file> \\\n" +
+                " -o <output file> ");
+
+        final StringBuilder header = new StringBuilder();
+        header.append("\nmy-java-application\n");
+        header.append("\nThis is just demo application. ");
+        header.append("\nExample:");
+        header.append("\nbash app/build/install/my-java-application/bin/my-java-application \\\n" +
+                " -i inputfile.txt  \\\n" +
+                " -o outputfile.txt ");
+        header.append("\n\n");
+        header.append("\nOptions:\n");
+        formatter.printHelp(usageSb.toString(), header.toString(), options,
+                "\nFor more information please check README.md file or \ncontact author\n\n");
+    }
+    
+    
 }
