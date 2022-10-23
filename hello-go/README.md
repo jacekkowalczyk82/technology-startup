@@ -1,5 +1,10 @@
 # Go resources 
 
+## https://go.dev/
+
+https://go.dev/
+
+
 ## https://www.openmymind.net/The-Little-Go-Book/
 
 https://github.com/karlseguin/the-little-go-book
