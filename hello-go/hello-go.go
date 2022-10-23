@@ -24,13 +24,21 @@ func main() {
     if len(os.Args) > 1 {
     	name := os.Args[1]
     	if name == "Kuba" {
-    	    fmt.Println("\n\n\n\t\tHello Kubusiu mój kochany !!!")
+    	    fmt.Println("\n\n\n\t\t Hello Kubusiu mój kochany !!!")
     	} else {
-    	    fmt.Println("\n\n\n\t\tHello "+ name)
+    	    fmt.Println("\n\n\n\t\t Hello "+ name)
     	}
+        fmt.Println("\n\n\n")
+
+        otherArgs := os.Args[2:]
+        fmt.Println("\n\n\n Your other aguments: ")
+        fmt.Println(otherArgs)
     } else {
-    	fmt.Println("\n\n\nHello Stranger")
+    	fmt.Println("\n\n\n Hello Stranger")
     }
+    fmt.Println("\n\n\n")
+    fmt.Println("\n\n\n Your all aguments: ")
+    fmt.Println(os.Args)
     fmt.Println("\n\n\n")
 
 }
