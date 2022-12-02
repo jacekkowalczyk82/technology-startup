@@ -8,13 +8,18 @@ Versioned archive files should have the filenames containing timestamp in format
 
 go build keep-n-versions.go 
 
-# to compile for Windows x64 
-
-
 ./keep-last-n-versions  ~/temp/test-versioned-files/ "notes_version_.*.tar.gz" 5 
 ./keep-last-n-versions  ~/temp/test-versioned-files/ "notes_version_.*.tar.gz" 5  ~/temp/test-dir-archived/
 ./keep-last-n-versions  ~/temp/test-versioned-files/ "keep-last-n-versions_version_[-_0-9]*.tar.gz" 5  ~/temp/test-dir-archived/
 
+
+
+# to compile for Windows x64 and Linux x64
+./build-Linux-Windows.sh 
+
+./keep-last-n-versions_linux-amd64.bin  ~/temp/test-versioned-files/ "keep-last-n-versions_version_[-_0-9]*.tar.gz" 5  ~/temp/test-dir-archived
+
+./keep-last-n-versions_windows-amd64.bin  c:\temp\test-versioned-files/ "keep-last-n-versions_version_[-_0-9]*.tar.gz" 5  C:\temp\test-dir-archived
 
 
 ```
