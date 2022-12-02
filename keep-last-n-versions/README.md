@@ -49,3 +49,9 @@ https://yourbasic.org/golang/append-explained/
 ## https://opensource.com/
 
 https://opensource.com/article/21/1/go-cross-compiling
+
+## other resources
+
+https://www.geeksforgeeks.org/how-to-delete-or-remove-a-file-in-golang/
+https://www.golangprograms.com/move-a-file-from-one-location-to-another-in-golang.html
+https://golangcookbook.com/chapters/arrays/reverse/
