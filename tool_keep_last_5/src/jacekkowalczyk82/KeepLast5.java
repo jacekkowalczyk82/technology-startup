@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @author gf2koek
+ * @author jacekkowalczyk82
  *
  */
 public class KeepLast5 {
