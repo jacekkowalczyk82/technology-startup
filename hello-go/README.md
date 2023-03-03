@@ -4,6 +4,16 @@
 
 https://go.dev/
 
+https://go.dev/doc/install
+
+
+```
+tar -xvzf go1.20.1.linux-amd64.tar.gz 
+export PATH=$PATH:/home/jacek/go/bin
+
+
+
+```
 
 ## https://www.openmymind.net/The-Little-Go-Book/
 
