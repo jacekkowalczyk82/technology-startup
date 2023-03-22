@@ -49,5 +49,11 @@ go get github.com/aws/aws-sdk-go-v2/service/sqs
 
 ./playtube-add-and-play-linux-amd64.bin -q py-player-queue -u "https://www.youtube.com/watch?v=YMsQ5izhIDo" -t "slodkiego milego zycia" 
 
+
+go run playtube-add-and-play.go -q py-player-queue -u "https://www.youtube.com/watch?v=9Uj2VyG8T0I" -t "Man in the rain" 
+
+go run playtube-add-and-play.go -q py-player-queue -u "https://www.youtube.com/watch?v=PEWP9nbqG9Q" -t "In the Air tonight" 
+
+
 ./playtube-add-and-play-linux-amd64.bin -q py-player-queue -u "https://www.youtube.com/watch?v=PEWP9nbqG9Q" -t "In the Air tonight" 
 
