@@ -573,8 +573,10 @@ if __name__ == '__main__':
 
 # example run 
 # C:\dev\install\Python310\python.exe c:\dev\utils\joplin-md-to-deck.js\joplin-md-to-deckjs.py "C:\dev\utils\joplin-md-to-deck.js\example\notatki-joplin\tools\base64 on windows.md" C:\dev\utils\joplin-md-to-deck.js\example\base64_on_windows_deckjs.html 
-# example run 
-# python joplin-md-to-deck.js/joplin-md-to-deckjs.py "./joplin-md-to-deck.js/example/notatki-joplin/tools/base64 on windows.md" ./joplin-md-to-deck.js/example/base64_on_windows_deckjs_2.html 
+
+# (base) jacek@pop-os:~/git/technology-startup/joplin-md-to-deck.js$ 
+# cd joplin-md-to-deck.js
+# python joplin-md-to-deckjs.py "./example/notatki-joplin/tools/base64 on windows.md" ./example/base64_on_windows_deckjs_2.html 
 
 
     if len(sys.argv) == 3:

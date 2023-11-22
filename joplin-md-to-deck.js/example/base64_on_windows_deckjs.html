@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=1024, user-scalable=no">
+
+<title>Your deck.js Presentation</title>
+
+<!-- Required stylesheet -->
+<link rel="stylesheet" media="screen" href="deck.js-latest/core/deck.core.css">
+
+<!-- Extension CSS files go here. Remove or add as needed. -->
+<link rel="stylesheet" media="screen" href="deck.js-latest/extensions/goto/deck.goto.css">
+<link rel="stylesheet" media="screen" href="deck.js-latest/extensions/menu/deck.menu.css">
+<link rel="stylesheet" media="screen" href="deck.js-latest/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" media="screen" href="deck.js-latest/extensions/status/deck.status.css">
+<link rel="stylesheet" media="screen" href="deck.js-latest/extensions/scale/deck.scale.css">
+
+<!-- Style theme. More available in /themes/style/ or create your own. -->
+<link rel="stylesheet" media="screen" href="deck.js-latest/themes/style/swiss.css">
+
+<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+<link rel="stylesheet" media="screen" href="deck.js-latest/themes/transition/horizontal-slide.css">
+
+<!-- Basic black and white print styles -->
+<link rel="stylesheet" media="print" href="deck.js-latest/core/print.css">
+
+<!-- Required Modernizr file -->
+<script src="deck.js-latest/modernizr.custom.js"></script>
+
+<style>
+.table_title {
+border: none;
+}
+
+.normal_table {
+border: 1px solid black;
+}
+
+/* th, td {
+border: 1px solid black;
+} */
+th, td {
+padding: 15px;
+}
+
+img {
+object-fit: contain;
+
+}
+
+</style>
+
+</head>
+<body>
+<div class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+
+
+<section class="slide">
+      <table align="center" class="table_title">
+         <tr><td align="center"> <img weight="577" height="433" src="JacekKowalczyk82_logo.jpg"/></td></tr>
+        <tr><td align="right"><h4 class="center">Base64 on Windows Workarounds</h4></td></tr>
+        <tr><td align="right"><h4 class="center">Jacek Kowalczyk</h4></td></tr>
+        <tr><td align="right"><h4 class="center">November 22, 2023</h4></td></tr>
+       </table>
+</section>
+
+
+
+<section class="slide">
+    <h1>base64 on windows</h1>
+<p>
+
+</p>
+<p>
+https://stackoverflow.com/questions/37046771/base64-encode-string-command-line-windows
+</p>
+<p>
+
+</p>
+</section>
+
+
+
+<section class="slide">
+    <h4>Different encoding results  Git Bash and MSYS2 vs something else</h4>
+<p>
+
+</p>
+<pre> 
+echo 21184067-14fa-4ec8-99d6-aea45eef590a | base64
+</pre>
+
+<p>
+
+</p>
+<p>
+
+</p>
+<p>
+**Git Bash and MSYS2 INCORRECT!!!**
+</p>
+<p>
+
+</p>
+<p>
+MjExODQwNjctMTRmYS00ZWM4LTk5ZDYtYWVhNDVlZWY1OTBhCg==
+</p>
+<p>
+
+</p>
+<p>
+online tool:
+</p>
+<p>
+**https://www.base64encode.org/**
+</p>
+<p>
+MjExODQwNjctMTRmYS00ZWM4LTk5ZDYtYWVhNDVlZWY1OTBh
+</p>
+<p>
+
+</p>
+<p>
+
+</p>
+<p>
+
+</p>
+<p>
+powershell "[convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(\"21184067-14fa-4ec8-99d6-aea45eef590a\"))"
+</p>
+<p>
+
+</p>
+<p>
+
+</p>
+<p>
+
+</p>
+</section>
+
+
+
+<section class="slide">
+    <h4>Intellij plugin https://plugins.jetbrains.com/plugin/2162-string-manipulation</h4>
+<p>
+
+</p>
+<p>
+https://plugins.jetbrains.com/plugin/2162-string-manipulation
+</p>
+<p>
+
+</p>
+</section>
+
+
+
+<section class="slide">
+    <h4>Python</h4>
+<p>
+
+</p>
+<pre> 
+# This is a sample Python script.
+
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import base64
+
+TEST_STRING = "this is test text to base64 encoding"
+
+
+def print_hi(name):
+# Use a breakpoint in the code line below to debug your script.
+print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+def encode(sample_string) :
+# sample_string = "GeeksForGeeks is the best"
+sample_string_bytes = sample_string.encode("UTF-8")
+
+base64_bytes = base64.b64encode(sample_string_bytes)
+base64_string = base64_bytes.decode("UTF-8")
+
+print(f"{sample_string} as Base64 encoded string: {base64_string}")
+return base64_string
+
+def decode(base64_string):
+import base64
+
+# base64_string = " R2Vla3NGb3JHZWVrcyBpcyB0aGUgYmVzdA =="
+base64_bytes = base64_string.encode("UTF-8")
+
+decoded_string_bytes = base64.b64decode(base64_bytes)
+decoded_string = decoded_string_bytes.decode("UTF-8")
+
+print(f"Base64: {base64_string} Decoded: {decoded_string}")
+return decoded_string
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+print_hi('PyCharm')
+encode(TEST_STRING)
+
+
+</pre>
+
+<p>
+
+</p>
+<p>
+Tests for base64 encoding decoding
+</p>
+<p>
+
+</p>
+<pre> 
+import unittest
+from main import encode
+from main import decode
+from main import TEST_STRING
+
+
+
+class MyTestCase(unittest.TestCase):
+def test_encode(self):
+self.assertEqual("dGhpcyBpcyB0ZXN0IHRleHQgdG8gYmFzZTY0IGVuY29kaW5n", encode(TEST_STRING))  # add assertion here
+
+def test_encode_dupa(self):
+self.assertEqual("ZHVwYQ==", encode("dupa"))  # add assertion here
+
+def test_decode(self):
+self.assertEqual(TEST_STRING, decode("dGhpcyBpcyB0ZXN0IHRleHQgdG8gYmFzZTY0IGVuY29kaW5n"))  # add assertion here
+
+if __name__ == '__main__':
+unittest.main()
+
+</pre>
+
+<p>
+
+</p>
+</section>
+
+
+
+<section class="slide">
+    <h4>java.util.Base64</h4>
+<p>
+
+</p>
+<p>
+https://www.baeldung.com/java-base64-encode-and-decode
+</p>
+<p>
+https://www.baeldung.com/java-base64-encode-and-decode
+</p>
+<p>
+
+</p>
+<p>
+
+</p>
+<pre> 
+import java.util.Base64;
+
+public class MyDecoder {
+
+public static String decodeBase64(final String encodedString) {
+String decodedString = null;
+try{
+byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
+decodedString = new String(decodedBytes);
+} catch (IllegalArgumentException iae) {
+log.warn("Input String is not valid Base64, returning original input data", iae);
+decodedString = encodedString;
+} finally {
+return decodedString;
+}
+}
+
+}
+
+
+
+
+import java.util.Base64;
+
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
+// https://www.baeldung.com/java-base64-encode-and-decode
+
+public class MyBase64 {
+
+
+public static void encodeBase64(String originalInput) {
+String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
+System.out.println(originalInput + " encoded to Base64: " + encodedString);
+}
+
+public static void decodeBase64(String base64String) {
+byte [] decodedStringBytes = Base64.getDecoder().decode(base64String);
+String decodedString = new String(decodedStringBytes);
+System.out.println("Base64: " + base64String + " Decoded: " + decodedString);
+}
+
+public static void main(String[] args) {
+
+encodeBase64("gf2koek");
+encodeBase64("trudnehaslo");
+
+
+decodeBase64("dHJ1ZG5laGFzbG8=");
+
+}
+}
+
+</pre>
+
+<p>
+
+</p>
+<p>
+
+</p>
+</section>
+
+
+
+<section class="slide">
+    <h4>notepad++</h4>
+<p>
+
+</p>
+<p>
+<img src="./_resources/d4e4d1fd4688f2631af2d25e512e1455.png" alt="d4e4d1fd4688f2631af2d25e512e1455.png".png" />
+</p>
+<p>
+
+</p>
+</section>
+
+
+
+
+
+<!-- End slides. -->
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<div aria-role="navigation">
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+</div>
+
+<!-- deck.status snippet -->
+<p class="deck-status" aria-role="status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+<label for="goto-slide">Go to slide:</label>
+<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+<datalist id="goto-datalist"></datalist>
+<input type="submit" value="Go">
+</form>
+
+<!-- End extension snippets. -->
+</div>
+
+<!-- Required JS files. -->
+<script src="deck.js-latest/jquery.min.js"></script>
+<script src="deck.js-latest/core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="deck.js-latest/extensions/menu/deck.menu.js"></script>
+<script src="deck.js-latest/extensions/goto/deck.goto.js"></script>
+<script src="deck.js-latest/extensions/status/deck.status.js"></script>
+<script src="deck.js-latest/extensions/navigation/deck.navigation.js"></script>
+<script src="deck.js-latest/extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+$(function() {
+$.deck('.slide');
+});
+</script>
+</body>
+</html>
