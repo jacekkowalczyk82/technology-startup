@@ -20,6 +20,10 @@ sdk install java 21.0.1-graal
 
 ```
 
+## java 21 what's new 
+
+https://spring.io/blog/2023/09/20/hello-java-21
+
 ## Gradle
 
 * https://gradle.org/install/
