@@ -572,7 +572,9 @@ if __name__ == '__main__':
 # C:\dev\maintenance\docs\Presentations\deck.js\output_workshopy-deckjs_2023.09.20.html
 
 # example run 
-# C:\dev\install\Python310\python.exe c:\dev\utils\joplin-md-to-deck.js\main.py "C:\dev\utils\joplin-md-to-deck.js\example\notatki-joplin\tools\base64 on windows.md" C:\dev\utils\joplin-md-to-deck.js\example\base64_on_windows_deckjs.html 
+# C:\dev\install\Python310\python.exe c:\dev\utils\joplin-md-to-deck.js\joplin-md-to-deckjs.py "C:\dev\utils\joplin-md-to-deck.js\example\notatki-joplin\tools\base64 on windows.md" C:\dev\utils\joplin-md-to-deck.js\example\base64_on_windows_deckjs.html 
+# example run 
+# \python c:\dev\utils\joplin-md-to-deck.js\joplin-md-to-deckjs.py "./example/notatki-joplin/tools/base64 on windows.md" example/base64_on_windows_deckjs_2.html 
 
 
     if len(sys.argv) == 3:
