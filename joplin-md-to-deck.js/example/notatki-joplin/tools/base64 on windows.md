@@ -27,6 +27,8 @@ MjExODQwNjctMTRmYS00ZWM4LTk5ZDYtYWVhNDVlZWY1OTBh
 powershell "[convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(\"21184067-14fa-4ec8-99d6-aea45eef590a\"))"
 
 
+***
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
 
 ## Intellij plugin https://plugins.jetbrains.com/plugin/2162-string-manipulation
 
@@ -104,6 +106,9 @@ if __name__ == '__main__':
 
 ```
 
+***
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
+
 ## java.util.Base64
 
 https://www.baeldung.com/java-base64-encode-and-decode
@@ -166,8 +171,12 @@ public class MyBase64 {
 
 ```
 
+***
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
 
 ## notepad++
 
 ![d4e4d1fd4688f2631af2d25e512e1455.png](../../_resources/d4e4d1fd4688f2631af2d25e512e1455.png)
 
+***
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
