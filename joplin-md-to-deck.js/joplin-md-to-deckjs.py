@@ -15,7 +15,7 @@ DOCUMENT_INFO["date"]=""
 deck_js_sections=dict({})
 
 SEPARATOR_LINE="***"
-PAGE_BREAK="<div style=\"page-break-after: always; visibility: hidden;\">\\pagebreaks</div>"
+PAGE_BREAK="<div style=\"page-break-after: always; visibility: hidden;\">\\pagebreak</div>"
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
