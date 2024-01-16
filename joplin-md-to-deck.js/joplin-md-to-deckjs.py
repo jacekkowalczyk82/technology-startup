@@ -595,7 +595,7 @@ def test_contains_pagebreak():
     # <div style="page-break-after: always; visibility: hidden;">\\pagebreak</div> b2
     test_md_lines = []
     test_md_lines.append("***")
-    test_md_lines.append("<div style=\"page-break-after: always; visibility: hidden;\">\\\pagebreak</div> b2")
+    test_md_lines.append("<div style=\"page-break-after: always; visibility: hidden;\">\\\\pagebreak</div> b2")
 
     for line in test_md_lines:
         print("actual:   " + line)
