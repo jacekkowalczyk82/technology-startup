@@ -28,7 +28,7 @@ powershell "[convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(\"21184067-
 
 
 ***
-<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>
 
 ## Intellij plugin https://plugins.jetbrains.com/plugin/2162-string-manipulation
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 ```
 
 ***
-<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>
 
 ## java.util.Base64
 
@@ -172,11 +172,11 @@ public class MyBase64 {
 ```
 
 ***
-<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>
 
 ## notepad++
 
 ![d4e4d1fd4688f2631af2d25e512e1455.png](../../_resources/d4e4d1fd4688f2631af2d25e512e1455.png)
 
 ***
-<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>s
+<div style="page-break-after: always; visibility: hidden;">\\pagebreaks</div>
