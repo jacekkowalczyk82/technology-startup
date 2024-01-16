@@ -15,7 +15,7 @@ DOCUMENT_INFO["date"]=""
 deck_js_sections=dict({})
 
 SEPARATOR_LINE="***"
-PAGE_BREAK="<div style=\"page-break-after: always; visibility: hidden;\">\\pagebreak</div>"
+PAGE_BREAK="<div style=\"page-break-after: always; visibility: hidden;\">\\\\pagebreak</div>"
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -62,6 +62,8 @@ def init_empty_file(file_path):
     file.write("")
     file.close()
 
+def debug_markdown_parse(section_started, code_fragment):
+    logging.debug("section_started: " + str(section_started) + ", code_fragment: " + str(code_fragment))
 
 # The input Markdown file mut contain the extra headers for example:
 # % Presentation Title
@@ -88,7 +90,9 @@ def parse_markdown_to_deck_js(markdown_string_lines):
             items = line.split("% ")
             DOCUMENT_INFO["date"] = items[1].strip()
         else:
-            logging.debug("Parsing markdown")
+            logging.debug("Parsing markdown:")
+            debug_markdown_parse(section_started, code_fragment)
+
             if not code_fragment and line.startswith("```"):
                 logging.debug("Parsing markdown code fragment")
                 code_fragment = True
@@ -99,10 +103,12 @@ def parse_markdown_to_deck_js(markdown_string_lines):
 
             if section_started and (not code_fragment) and (line.startswith(SEPARATOR_LINE) or line.startswith(PAGE_BREAK)) :
                 logging.debug("Line separator or page break: " + line)
+                debug_markdown_parse(section_started, code_fragment)
                 continue
             
             if section_started and (not code_fragment) and (line.startswith("# ") or line.startswith("## ") or line.startswith("### ")) :
                 logging.debug("next Section Line: " + line)
+                debug_markdown_parse(section_started, code_fragment)
 
                 # already started so it is previous section so we can add it to the list
                 new_deck_js_section = dict({})
@@ -120,6 +126,7 @@ def parse_markdown_to_deck_js(markdown_string_lines):
 
             if not section_started and (not code_fragment) and (line.startswith("# ") or line.startswith("## ") or line.startswith("### ")):
                 logging.debug("Section Line: " + line)
+                debug_markdown_parse(section_started, code_fragment)
 
                 section_started = True
                 if line.startswith("# "):
@@ -133,6 +140,7 @@ def parse_markdown_to_deck_js(markdown_string_lines):
                 md_lines = []
             else:
                 logging.debug("Content Line: " + line)
+                debug_markdown_parse(section_started, code_fragment)
                 md_lines.append(line)
 
 
@@ -453,7 +461,7 @@ def get_deck_js_section_html_for_markdown_lines(section_title, section_level, md
             md_code_lines = []
             continue
         else:
-            logging.debug(f"{md_line}")
+            logging.debug(f"md_line: {md_line}")
             html_section_lines.append("<p>")
             html_section_lines.append(md_line)
             html_section_lines.append("</p>")
@@ -567,12 +575,44 @@ def test_html_table():
         print(line)
     pass
 
+def test_contains_separator():
+    # ***
+    # <div style="page-break-after: always; visibility: hidden;">\\pagebreak</div> b2
+    test_md_lines = []
+    test_md_lines.append("***")
+    test_md_lines.append("<div style=\"page-break-after: always; visibility: hidden;\">\\pagebreak</div> b2")
+
+    for line in test_md_lines:
+        if line.startswith(SEPARATOR_LINE):
+            pass
+            
+    raise AssertionError
+
+def test_contains_pagebreak():
+    # ***
+    # <div style="page-break-after: always; visibility: hidden;">\\pagebreak</div> b2
+    test_md_lines = []
+    test_md_lines.append("***")
+    test_md_lines.append("<div style=\"page-break-after: always; visibility: hidden;\">\\\\pagebreak</div> b2")
+
+    for line in test_md_lines:
+        print("actual:   " + line)
+        print("expected: " + PAGE_BREAK)
+        if line.startswith(PAGE_BREAK):
+            pass
+            
+    raise AssertionError
+
+
+
 if __name__ == '__main__':
     print_hi('PyCharm')
 
     # test_html_table(); # OK
     # test_parse_markdown_to_deck_js() # OK
     # test_parse_markdown_list_and_code(); # OK
+    # test_contains_pagebreak()
+    # test_contains_separator()
 
 # example params C:\dev\maintenance\docs\Presentations\deck.js\notatki-joplin\RAPID\Workshop_20230920.md \
 # C:\dev\maintenance\docs\Presentations\deck.js\output_workshopy-deckjs_2023.09.20.html
