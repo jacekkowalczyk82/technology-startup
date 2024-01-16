@@ -581,27 +581,33 @@ def test_contains_separator():
     test_md_lines = []
     test_md_lines.append("***")
     test_md_lines.append("<div style=\"page-break-after: always; visibility: hidden;\">\\pagebreak</div> b2")
-
+    found = False
     for line in test_md_lines:
         if line.startswith(SEPARATOR_LINE):
+            found = True
             pass
-            
-    raise AssertionError
+        
+    if not found:
+        raise AssertionError
 
 def test_contains_pagebreak():
     # ***
     # <div style="page-break-after: always; visibility: hidden;">\\pagebreak</div> b2
     test_md_lines = []
     test_md_lines.append("***")
-    test_md_lines.append("<div style=\"page-break-after: always; visibility: hidden;\">\\\\pagebreak</div> b2")
+    test_md_lines.append("<div style=\"page-break-after: always; visibility: hidden;\">\\\pagebreak</div> b2")
 
     for line in test_md_lines:
         print("actual:   " + line)
         print("expected: " + PAGE_BREAK)
+        found = False
+    for line in test_md_lines:
         if line.startswith(PAGE_BREAK):
+            found = True
             pass
-            
-    raise AssertionError
+        
+    if not found:
+        raise AssertionError
 
 
 
@@ -611,8 +617,9 @@ if __name__ == '__main__':
     # test_html_table(); # OK
     # test_parse_markdown_to_deck_js() # OK
     # test_parse_markdown_list_and_code(); # OK
-    # test_contains_pagebreak()
-    # test_contains_separator()
+    
+    test_contains_separator()
+    test_contains_pagebreak()
 
 # example params C:\dev\maintenance\docs\Presentations\deck.js\notatki-joplin\RAPID\Workshop_20230920.md \
 # C:\dev\maintenance\docs\Presentations\deck.js\output_workshopy-deckjs_2023.09.20.html
