@@ -14,6 +14,8 @@ DOCUMENT_INFO["date"]=""
 
 deck_js_sections=dict({})
 
+SEPARATOR_LINE="***"
+PAGE_BREAK="<div style=\"page-break-after: always; visibility: hidden;\">\\pagebreaks</div>"
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -62,9 +64,9 @@ def init_empty_file(file_path):
 
 
 # The input Markdown file mut contain the extra headers for example:
-# % Workshop 2023-09-20
+# % Presentation Title
 # % Jacek Kowalczyk
-# % September 20, 2023
+# % Presentation date free text
 def parse_markdown_to_deck_js(markdown_string_lines):
     lines_counter=0
     section_title = ""
@@ -95,6 +97,10 @@ def parse_markdown_to_deck_js(markdown_string_lines):
                 code_fragment = False
                 logging.debug("End of code fragment")
 
+            if section_started and (not code_fragment) and (line.startswith(SEPARATOR_LINE) or line.startswith(PAGE_BREAK)) :
+                logging.debug("Line separator or page break: " + line)
+                continue
+            
             if section_started and (not code_fragment) and (line.startswith("# ") or line.startswith("## ") or line.startswith("### ")) :
                 logging.debug("next Section Line: " + line)
 
