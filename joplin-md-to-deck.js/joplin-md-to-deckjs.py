@@ -444,6 +444,13 @@ def get_deck_js_section_html_for_markdown_lines(section_title, section_level, md
             md_list_lines = []
             list_started = False
 
+        if  md_line.startswith("> "):
+            html_section_lines.append("<blockquote>")
+            items  =  md_line.split("> ")
+            html_section_lines.append(items[1])
+            html_section_lines.append("</blockquote>")
+            continue
+
         if not code_fragment_started and md_line.startswith("```"):
             logging.debug("parse md code fragment")
             code_fragment_started = True
