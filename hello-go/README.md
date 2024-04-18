@@ -8,7 +8,8 @@ https://go.dev/doc/install
 
 
 ```
-tar -xvzf go1.20.1.linux-amd64.tar.gz 
+mv Downloads/go1.22.1.linux-amd64.tar.gz ~/golang/
+tar -xvzf go1.22.1.linux-amd64.tar.gz 
 export PATH=$PATH:/home/jacek/go/bin
 
 
