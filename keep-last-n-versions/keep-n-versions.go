@@ -35,6 +35,18 @@ func GetFilesInDir(dirPath string) []fs.FileInfo {
 	return files
 }
 
+func GetFilesInDir_v2(dirPath string) []fs.DirEntry {
+	dirEntries, err := os.ReadDir(dirPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, f := range dirEntries {
+		fmt.Println(f.Name())
+	}
+	return dirEntries
+}
+
 func reverse(strings []string) []string {
 	for i, j := 0, len(strings)-1; i < j; i, j = i+1, j-1 {
 		strings[i], strings[j] = strings[j], strings[i]
@@ -87,7 +99,7 @@ func archiveFiles(dirPath string, fileNames []string, archiveDirPath string) {
 	}
 }
 
-//keep-last-n-versions - keeps n last versions of files matching given file pattern in the given directory
+// keep-last-n-versions - keeps n last versions of files matching given file pattern in the given directory
 func main() {
 
 	//argsWithProg := os.Args
