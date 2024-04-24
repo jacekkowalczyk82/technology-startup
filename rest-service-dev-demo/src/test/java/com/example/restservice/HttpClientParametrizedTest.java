@@ -62,7 +62,7 @@ public class HttpClientParametrizedTest {
 
     //example with standard JUnit assertions
     @ParameterizedTest
-    @CsvSource({"Jacek", "CoBa", "Testing"})
+    @CsvSource({"Jacek", "Dummy", "Testing"})
     public void greetingShouldReturnDefaultMessageJunitFailingExample(String name) throws Exception {
 
         //Given
@@ -82,7 +82,7 @@ public class HttpClientParametrizedTest {
 
     //example with standard JUnit assertions
     @ParameterizedTest
-    @CsvSource({"Jacek", "CoBa", "Testing"})
+    @CsvSource({"Jacek", "Dummy", "Testing"})
     public void greetingShouldReturnDefaultMessageJunitFailingExampleMoreInfo(String name) throws Exception {
 
         //Given
@@ -102,7 +102,7 @@ public class HttpClientParametrizedTest {
 
     //example with standard JUnit assertions
     @ParameterizedTest
-    @CsvSource({"Jacek", "CoBa", "Testing"})
+    @CsvSource({"Jacek", "Dummy", "Testing"})
     public void greetingShouldReturnDefaultMessageJunitFixed(String name) throws Exception {
 
         //Given
