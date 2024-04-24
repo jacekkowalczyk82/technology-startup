@@ -163,28 +163,12 @@ def parse_markdown_to_deck_js(markdown_string_lines):
 
 # <section class="slide">
 #       <table align="center" class="table_title">
-#         <tr><td align="center" weight="577" height="433" background="CoBa_Tower-Logo_03.jpg"></td></tr>
-#         <tr><td align="right"><h4 class="center">RAPID Workshop 2023-09-20</h4></td></tr>
+#         <tr><td align="center" weight="577" height="433" background="image-Logo.jpg"></td></tr>
+#         <tr><td align="right"><h4 class="center">presentation title 2023-09-20</h4></td></tr>
 #         <tr><td align="right"><h4 class="center">Jacek Kowalczyk</h4></td></tr>
 #         <tr><td align="right"><h4 class="center">2023-09-20</h4></td></tr>
 #       </table>
 #     </section>
-def generate_title_slide_Coba(DOCUMENT_INFO):
-    title = DOCUMENT_INFO["title"]
-    author = DOCUMENT_INFO["author"]
-    date = DOCUMENT_INFO["date"]
-
-    html_tile_lines = []
-    html_tile_lines.append("<section class=\"slide\">")
-    html_tile_lines.append("      <table align=\"center\" class=\"table_title\">")
-    html_tile_lines.append("         <tr><td align=\"center\"> <img weight=\"577\" height=\"433\" src=\"CoBa_Tower-Logo_03.jpg\"/></td></tr>")
-    html_tile_lines.append(f"        <tr><td align=\"right\"><h4 class=\"center\">{title}</h4></td></tr>")
-    html_tile_lines.append(f"        <tr><td align=\"right\"><h4 class=\"center\">{author}</h4></td></tr>")
-    html_tile_lines.append(f"        <tr><td align=\"right\"><h4 class=\"center\">{date}</h4></td></tr>")
-    html_tile_lines.append("       </table>")
-    html_tile_lines.append("</section>")
-
-    return html_tile_lines
 
 # JacekKowalczyk82_logo
 
@@ -217,7 +201,7 @@ def init_deck_js_html(DOCUMENT_INFO, target_file_path):
     append_to_file(target_file_path, "")
     append_to_file(target_file_path, "")
 
-    # title_slide_html_lines = generate_title_slide_Coba(DOCUMENT_INFO)
+    
     title_slide_html_lines = generate_title_slide_Jacek(DOCUMENT_INFO)
     line= ""
 
