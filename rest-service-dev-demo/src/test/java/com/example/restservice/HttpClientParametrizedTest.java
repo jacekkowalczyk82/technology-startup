@@ -61,12 +61,15 @@ public class HttpClientParametrizedTest {
     }
 
     //example with standard JUnit assertions
+    //this test will fail, but the failure message will not give us to many details
+    //we are using Assertions.assertTrue but expected: <true> but was: <false> does not help much 
     @ParameterizedTest
     @CsvSource({"Jacek", "Dummy", "Testing"})
     public void greetingShouldReturnDefaultMessageJunitFailingExample(String name) throws Exception {
 
         //Given
-        HttpRequest request = HttpRequest.newBuilder().uri(new URI(greetingEndpoint)).method(HTTP_METHOD_GET, HttpRequest.BodyPublishers.ofString(""))
+        HttpRequest request = HttpRequest.newBuilder().uri(new URI(greetingEndpoint)).method(HTTP_METHOD_GET, 
+        HttpRequest.BodyPublishers.ofString(""))
                 .header(HEADER_CONTENT_TYPE, APPLICATION_JSON)
                 .timeout(Duration.ofSeconds(TIMEOUT_DEFAULT_SECONDS)).build();
 
@@ -76,17 +79,20 @@ public class HttpClientParametrizedTest {
         TestTools.debugHttpResponse(logger, response);
 
         //Then
-        Assertions.assertTrue(response.body().contains("Hello, "+ name), "The response from the service does not contain expected Hello, "+ name);
+        Assertions.assertTrue(response.body().contains("Hello, "+ name), "The response from the service does not contain expected Hello, " + name);
     }
 
 
     //example with standard JUnit assertions
+    //this test will fail too
+    //we are extending the failure message to provide more details
     @ParameterizedTest
     @CsvSource({"Jacek", "Dummy", "Testing"})
     public void greetingShouldReturnDefaultMessageJunitFailingExampleMoreInfo(String name) throws Exception {
 
         //Given
-        HttpRequest request = HttpRequest.newBuilder().uri(new URI(greetingEndpoint)).method(HTTP_METHOD_GET, HttpRequest.BodyPublishers.ofString(""))
+        HttpRequest request = HttpRequest.newBuilder().uri(new URI(greetingEndpoint)).method(HTTP_METHOD_GET, 
+        HttpRequest.BodyPublishers.ofString(""))
                 .header(HEADER_CONTENT_TYPE, APPLICATION_JSON)
                 .timeout(Duration.ofSeconds(TIMEOUT_DEFAULT_SECONDS)).build();
 
@@ -96,11 +102,13 @@ public class HttpClientParametrizedTest {
         TestTools.debugHttpResponse(logger, response);
 
         //Then
-        Assertions.assertTrue(response.body().contains("Hello, "+ name), "The response from the service does not contain expected Hello, "+ name + ", The actual response was: "+ response.body());
+        Assertions.assertTrue(response.body().contains("Hello, "+ name), "The response from the service does not contain expected Hello, " 
+        + name + ", The actual response was: "+ response.body());
     }
 
 
     //example with standard JUnit assertions
+    //fixed test
     @ParameterizedTest
     @CsvSource({"Jacek", "Dummy", "Testing"})
     public void greetingShouldReturnDefaultMessageJunitFixed(String name) throws Exception {
@@ -108,7 +116,8 @@ public class HttpClientParametrizedTest {
         //Given
         String paremterizedEndpoint = greetingEndpoint+ "?name=" + name;
 
-        HttpRequest request = HttpRequest.newBuilder().uri(new URI(paremterizedEndpoint)).method(HTTP_METHOD_GET, HttpRequest.BodyPublishers.ofString(""))
+        HttpRequest request = HttpRequest.newBuilder().uri(new URI(paremterizedEndpoint)).method(HTTP_METHOD_GET, 
+        HttpRequest.BodyPublishers.ofString(""))
                 .header(HEADER_CONTENT_TYPE, APPLICATION_JSON)
                 .timeout(Duration.ofSeconds(TIMEOUT_DEFAULT_SECONDS)).build();
 
@@ -118,7 +127,8 @@ public class HttpClientParametrizedTest {
         TestTools.debugHttpResponse(logger, response);
 
         //Then
-        Assertions.assertTrue(response.body().contains("Hello, "+ name), "The response from the service does not contain expected Hello, "+ name);
+        Assertions.assertTrue(response.body().contains("Hello, "+ name), "The response from the service does not contain expected Hello, " 
+        + name + ", The actual response was: "+ response.body());
     }
 
     
