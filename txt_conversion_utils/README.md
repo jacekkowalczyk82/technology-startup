@@ -2,7 +2,7 @@
   
   
   
-## 1. Required tools  
+## 1. Required tools to install  
   
 You will need to download two things:  
   
@@ -29,15 +29,7 @@ The conversion from asciidoc file to PDF is very simple:
 asciidoctorj.bat -b pdf input-file.adoc  
 ```
   
-Examples:  
-```
-cd C:\docs\AsciiDocMarkdownDocs  
-  
-C:\dev\install\asciidoctorj-2.5.8\bin\asciidoctorj.bat -b pdf HowToConvertAsciiDoc.adoc  
-  
-
-
-```  
+ 
   
    
 ## Conversion to DOCX  
@@ -54,6 +46,81 @@ pandoc.exe -s -r docbook -t docx -o my-DOXC-document.docx input-file.xml
 
 
 ----
+
+
+## Solid table borders solution 1 
+
+```
+# https://github.com/jgm/pandoc/issues/3275
+pandoc.exe --print-default-data-file example.docx > myref-SOLID_TABLE_BORDERS.docx
+
+# edit Table style and set table borders
+
+pandoc.exe -s  -r docbook -t docx --reference-doc=myref-SOLID_TABLE_BORDERS.docx -o example-solid-table-borders.docx example.xml
+```
+
+## Solid table borders solution 2
+
+https://github.com/jacekkowalczyk82/add-solid-table-borders
+
+```
+
+
+pandoc.exe -s  -r docbook -t docx  -o example.docx example.xml
+
+
+solidtableborders-0.1-20240521\bin\solidtableborders.bat example.docx
+
+```
+
+## Set docx landscape layout 
+
+```
+
+# and to set landscape layout use:
+landscapelayout-0.1-20240522\bin\landscapelayout.bat example.docx_fixed_solidborders.docx
+
+```
+
+
+## AsciiDoc to Markdown
+
+```
+asciidoctorj.bat -b docbook example.adoc
+
+# this generates example.xml docbook
+
+
+pandoc.exe -s -f docbook  -t markdown -o example.md example.xml
+
+# markdown_strict
+pandoc.exe -s -f docbook  -t markdown_strict -o example_strict.md example.xml
+
+
+```
+
+
+## Markdown to docx
+
+
+```
+pandoc.exe -s -t docx -o example.md.docx example.md
+
+pandoc.exe -s -t docx -o pandoc-manual.docx pandoc-manual.md
+
+
+```
+
+
+## Asciidoc to reST
+
+
+```
+
+pandoc -f asciidoc -t rst -o example.rst example.adoc
+
+```
+
 
 ## Other notes
 
