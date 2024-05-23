@@ -112,14 +112,24 @@ pandoc.exe -s -t docx -o pandoc-manual.docx pandoc-manual.md
 ```
 
 
-## Asciidoc to reST
 
+## AsciiDoc to reST 
+
+```
+asciidoctorj.bat -b docbook example.adoc
+#this generates example.xml docbook
+
+pandoc -f docbook -t rst -o example.rst example.xml 
 
 ```
 
-pandoc -f asciidoc -t rst -o example.rst example.adoc
+## reST to DOCX
 
 ```
+pandoc.exe  -s -f rst -t docx -o example.docx example.rst
+
+```
+
 
 
 ## Other notes
