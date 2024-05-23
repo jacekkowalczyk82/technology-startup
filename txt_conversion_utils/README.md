@@ -45,6 +45,18 @@ pandoc.exe -s -r docbook -t docx -o my-DOXC-document.docx input-file.xml
 ```
 
 
+## Fix word docx files with solid table borders and with landscape A3 paper size 
+
+``` 
+C:\dev\install\asciidoctorj-2.5.8\bin\asciidoctorj.bat -b docbook example.adoc  
+  
+C:\dev\install\pandoc\pandoc-3.2\pandoc.exe -s  -r docbook -t docx  -o example.docx example.xml  
+  
+# https://github.com/jacekkowalczyk82/word-docx-fixer  
+C:\dev\tools\docx-fixer\docx-fixer-0.2-20240523\bin\docx-fixer.bat example.docx LANDSCAPE_A3_SOLID_TABLE_BORDERS
+```
+
+
 ----
 
 
