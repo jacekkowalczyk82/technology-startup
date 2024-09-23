@@ -1,0 +1,5 @@
+sample-java-app/target
+sample-java-app/test_data_*
+sample-java-app/sample.db
+
+
