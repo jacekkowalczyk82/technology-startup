@@ -1,0 +1,8 @@
+Oct 01, 2024 9:11:46 AM my.java.application.App main
+INFO: info level message
+Oct 01, 2024 9:11:46 AM my.java.application.App main
+WARNING: warn level message
+Oct 01, 2024 9:11:46 AM my.java.application.App main
+SEVERE: error level message
+Oct 01, 2024 9:11:46 AM my.java.application.App main
+INFO: Provided correct arguments
