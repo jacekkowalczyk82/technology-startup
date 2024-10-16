@@ -8,3 +8,6 @@ mkdir -p ~/mp3-music/$THIS_CONVERSION_DIR
 
 find $WEBM_DIR -name "*.webm" -exec ffmpeg -i '{}' '{}.mp3' \;
 find $WEBM_DIR -name "*.webm.mp3" -exec mv '{}' ~/mp3-music/$THIS_CONVERSION_DIR/ \;
+
+# find . -name "*.webm" -exec ffmpeg -i '{}' '{}.mp3' \;
+# find $WEBM_DIR -name "*.webm.mp3" -exec mv '{}' ~/mp3-music/10-milions-mp3/ \;
