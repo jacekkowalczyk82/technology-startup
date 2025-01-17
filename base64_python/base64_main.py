@@ -78,3 +78,7 @@ if __name__ == '__main__':
     encode_file("/home/jacek/Downloads/deck.js-latest.zip")
     decode_file("/home/jacek/Downloads/deck.js-latest.zip_base64.txt")
 
+    encode_file("/home/jacek/git/workday-go/bin/workday-1.2-20241218-windows-amd64.exe")
+    decode_file("/home/jacek/git/workday-go/bin/workday-1.2-20241218-windows-amd64.exe_base64.txt")
+    
+
