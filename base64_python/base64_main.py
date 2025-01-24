@@ -80,5 +80,14 @@ if __name__ == '__main__':
 
     encode_file("/home/jacek/git/workday-go/bin/workday-1.2-20241218-windows-amd64.exe")
     decode_file("/home/jacek/git/workday-go/bin/workday-1.2-20241218-windows-amd64.exe_base64.txt")
+
+    encode_file("/home/jacek/Documents/klucze-hasla/my-secret-app-coba-2025-01/target/x86_64-pc-windows-gnu/release/my-secret-app.exe")
+    decode_file("/home/jacek/Documents/klucze-hasla/my-secret-app-coba-2025-01/target/x86_64-pc-windows-gnu/release/my-secret-app.exe_base64.txt")
+
+    encode_file("/home/jacek/Documents/klucze-hasla/go-secret-app-coba-2025-01/bin/go-secret-app-0.1-COBA-2025-01-windows-amd64.exe")
+    decode_file("/home/jacek/Documents/klucze-hasla/go-secret-app-coba-2025-01/bin/go-secret-app-0.1-COBA-2025-01-windows-amd64.exe_base64.txt")
+
+    
+
     
 
